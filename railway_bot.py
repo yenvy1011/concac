@@ -12,7 +12,7 @@ STATE_AWAIT_RESULT = range(2)
 pending_users = {}
 
 def start(update, context):
-    update.message.reply_text("👋 Chào mừng đến bot tài xỉu MD5!
+    update.message.reply_text("👋 Chào mừng đến bot tài xỉu MD5!")
 /key <mã> để nhập key
 /menu để xem chức năng.")
 
