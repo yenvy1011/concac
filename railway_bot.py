@@ -12,10 +12,15 @@ STATE_AWAIT_RESULT = range(2)
 pending_users = {}
 
 def start(update, context):
-    update.message.reply_text("👋 Chào mừng đến bot tài xỉu MD5!\n/key <mã> để nhập key\n/menu để xem chức năng.")
+    update.message.reply_text("👋 Chào mừng đến bot tài xỉu MD5!
+/key <mã> để nhập key
+/menu để xem chức năng.")
 
 def menu(update, context):
-    update.message.reply_text("📋 MENU\n/key <mã> – Nhập key\n/sudung – Bắt đầu dự đoán tự động\n/stop – Dừng")
+    update.message.reply_text("📋 MENU
+/key <mã> – Nhập key
+/sudung – Bắt đầu dự đoán tự động
+/stop – Dừng")
 
 def handle_key(update, context):
     if len(context.args) != 1:
@@ -34,7 +39,9 @@ def sudung_start(update, context):
     if user_id != ADMIN_ID and not any(info["user_id"] == user_id for info in user_keys.values()):
         update.message.reply_text("🔑 Bạn chưa nhập key. Dùng /key <mã>")
         return ConversationHandler.END
-    update.message.reply_text("📌 Nhập chuỗi cầu (15 ký tự T/X) và phiên.\nVD:\nTXTTTXXTXXTTXTTT 1442030")
+    update.message.reply_text("📌 Nhập chuỗi cầu (15 ký tự T/X) và phiên.
+VD:
+TXTTTXXTXXTTXTTT 1442030")
     return STATE_INPUT[0]
 
 def load_result_from_json(session):
@@ -100,7 +107,8 @@ def auto_predict(update, context):
     pattern_str = "".join(pattern)
 
     update.message.reply_text(
-        f"📍 Chuỗi cầu hiện tại: {pattern_str}\n"
+        f"📍 Chuỗi cầu hiện tại: {pattern_str}
+"
         f"🎯 Dự đoán phiên {session}: {prediction}"
     )
 
@@ -160,8 +168,7 @@ def main():
         port=PORT,
         url_path=BOT_TOKEN,
     )
-    updater.bot.set_webhook(f"https://concac-production-c869.up.railway.app
-/{BOT_TOKEN}")
+    updater.bot.set_webhook(f"https://concac-production-c869.up.railway.app/{BOT_TOKEN}")
     updater.idle()
 
 if __name__ == "__main__":
