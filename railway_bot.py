@@ -160,7 +160,8 @@ def main():
         port=PORT,
         url_path=BOT_TOKEN,
     )
-    updater.bot.set_webhook(f"https://<your-railway-app-name>.up.railway.app/{BOT_TOKEN}")
+    updater.bot.set_webhook(f"https://concac-production-c869.up.railway.app
+/{BOT_TOKEN}")
     updater.idle()
 
 if __name__ == "__main__":
